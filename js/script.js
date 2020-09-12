@@ -29,6 +29,7 @@ class PlayerList {
         }
         let player = new Player(name);
         this.list.push(player);
+        this.setStorage();
         this.showList();
     }
 
@@ -67,6 +68,7 @@ class PlayerList {
             }
         }
         $('#pointModal').modal('hide');
+        this.setStorage();
         this.showList();
     }
 
@@ -74,17 +76,29 @@ class PlayerList {
         for (let i = 0; i < this.list.length; i++) {
             if (i !== index) {
                 this.list[i].point -= 20;
+                this.list[index].point += 20;
             }
         }
-        this.list[index].point += 60;
+        this.setStorage();
         this.showList();
+    }
+
+    setStorage() {
+        let jsonList = JSON.stringify(this.list);
+        localStorage.setItem('Players', jsonList);
+    }
+
+    getStorage() {
+        if (localStorage.length > 0) {
+            let jsonList = localStorage.getItem('Players');
+            this.list = JSON.parse(jsonList);
+            this.showList();
+        }
     }
 }
 
 let playerList = new PlayerList();
-$("#save-button").on('click', function () {
 
-});
 $('#playerModal').on('shown.bs.modal', function () {
     $('#name').trigger('focus');
 });
