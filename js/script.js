@@ -37,10 +37,9 @@ class PlayerList {
         $("#table-body").html("");
         this.list.forEach((player, index) => {
             $("#table-body").append(`<tr>
-                <td>${++index}</td>
                 <td>${player.name}</td>
-                <td>${player.point}</td>
-                <td><button type="button" onclick="playerList.showListPlusPoint(${--index})" id="open-point-modal" class="btn btn-success" data-toggle="modal" data-id="${index}" data-name="${player.name}" data-target="#pointModal"><i class="fas fa-plus"></i></button></td>
+                <td class="text-">${player.point}</td>
+                <td><button type="button" onclick="playerList.showListPlusPoint(${index})" id="open-point-modal" class="btn btn-success" data-toggle="modal" data-id="${index}" data-name="${player.name}" data-target="#pointModal"><i class="fas fa-plus"></i></button></td>
                 <td><button type="button" onclick="playerList.superUpdatePoint(${index})" id="super-button" class="btn btn-danger" data-id="${index}"><i class="fas fa-plus"></i></button></td>
                 </tr>`);
         });
@@ -52,7 +51,7 @@ class PlayerList {
             if (i !== index) {
                 $("#point-table").append(`<tr>
                     <td>${this.list[i].name}</td>
-                    <td><input id="player-${i}" type="number" size="1"></td>
+                    <td><input class="col-xs-111" id="player-${i}" type="number" size="1"></td>
                     </tr>`);
             }
         }
