@@ -18,14 +18,16 @@ class PlayerList {
         let name = $("#name").val().toUpperCase();
         switch (name) {
             case "DUNG":
-                name = "DŨNG NGHIỆN";
+                name = "DŨNG";
                 break;
             case "QUY":
-                name = "QUÝ NÁT";
+                name = "QUÝ";
                 break;
             case "VIET":
-                name = "VIỆT CỘNG";
+                name = "VIỆT";
                 break;
+            case "NHAN":
+                name = "NHẪN"
         }
         let player = new Player(name);
         this.list.push(player);
@@ -79,7 +81,6 @@ class PlayerList {
             }
         }
         this.setStorage();
-        this.showList();
     }
 
     setStorage() {
@@ -93,6 +94,12 @@ class PlayerList {
             this.list = JSON.parse(jsonList);
             this.showList();
         }
+    }
+
+    clearStorage() {
+        localStorage.clear();
+        this.list = [];
+        this.showList();
     }
 }
 
