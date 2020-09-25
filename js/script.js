@@ -81,6 +81,7 @@ class PlayerList {
             }
         }
         this.setStorage();
+        this.showList();
     }
 
     setStorage() {
@@ -117,6 +118,6 @@ $('#save-name').on('click', function () {
 $(document).on('click', "#open-point-modal", function () {
     let name = $(this).data('name');
     $("#player-name").html(name);
-    let point = $(this).data('id');
-    $("#hidden").val(point);
+    let id = $(this).data('id');
+    $("#hidden").val(id);
 });
