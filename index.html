@@ -19,6 +19,9 @@
             <i class="fas fa-user-plus"></i>
         </button>
         <button type="button"onclick="playerList.clearStorage()" class="btn btn-danger col-xs-6 col-xl-2 mb-2">
+            <i class="fas fa-sync-alt"></i>
+        </button>
+        <button type="button"onclick="playerList.resetPoint()" class="btn btn-warning col-xs-6 col-xl-2 mb-2">
             <i class="fas fa-redo"></i>
         </button>
 
@@ -38,9 +41,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="save-name" class="btn btn-primary" onclick="playerList.updateList()">
-                            Save
-                        </button>
+                        <input type="button" id="save-name" class="btn btn-primary" onclick="playerList.updateList()" value="Create">
                     </div>
                 </div>
             </div>
@@ -48,7 +49,7 @@
     </div>
 
     <div class="row mt-5">
-        <table class="table">
+        <table class="table text-center">
             <thead>
             <tr>
                 <th scope="col">Tên</th>
