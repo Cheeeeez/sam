@@ -12,26 +12,46 @@
             crossorigin="anonymous"></script>
 
 <body onload="playerList.getStorage()">
+<nav class="navbar navbar-expand-lg navbar-light mb-3">
+    <a class="navbar-brand fab fa-steam" href="#" style="font-size: 2.5rem"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" data-toggle="modal" data-target="#playerModal">Thêm người chơi</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" onclick="playerList.clearStorage()">Tạo ván mới</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" onclick="playerList.resetPoint()">Reset điểm</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div class="container-fluid">
-    <div class="row justify-content-center mt-3">
+    <div class="row justify-content-center">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary col-xs-6 col-xl-2 mb-2" data-toggle="modal" data-target="#playerModal">
-            <i class="fas fa-user-plus"></i>
-        </button>
-        <button type="button"onclick="playerList.clearStorage()" class="btn btn-danger col-xs-6 col-xl-2 mb-2">
-            <i class="fas fa-sync-alt"></i>
-        </button>
-        <button type="button"onclick="playerList.resetPoint()" class="btn btn-warning col-xs-6 col-xl-2 mb-2">
-            <i class="fas fa-redo"></i>
-        </button>
-
+<!--        <button type="button" class="btn btn-primary col-xs-6 col-xl-2 mb-2" data-toggle="modal"-->
+<!--                data-target="#playerModal">-->
+<!--            <i class="fas fa-user-plus"></i>-->
+<!--        </button>-->
+<!--        <button type="button" onclick="playerList.clearStorage()" class="btn btn-danger col-xs-6 col-xl-2 mb-2">-->
+<!--            <i class="fas fa-sync-alt"></i>-->
+<!--        </button>-->
+<!--        <button type="button" onclick="playerList.resetPoint()" class="btn btn-warning col-xs-6 col-xl-2 mb-2">-->
+<!--            <i class="fas fa-redo"></i>-->
+<!--        </button>-->
         <!-- Modal -->
         <div class="modal fade" id="playerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
              aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Player name</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Tên người chơi</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -40,15 +60,16 @@
                         <input type="text" class="form-control" id="name">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <input type="button" id="save-name" class="btn btn-primary" onclick="playerList.updateList()" value="Create">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                        <input type="button" id="save-name" class="btn btn-primary" onclick="playerList.updateList()"
+                               value="Tạo">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row mt-5">
+    <div class="row">
         <table class="table text-center">
             <thead>
             <tr>
@@ -77,9 +98,9 @@
                         <input type="hidden" id="hidden">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
                         <button type="button" id="save-button" class="btn btn-primary"
-                                onclick="playerList.updatePoint()">Save
+                                onclick="playerList.updatePoint()">Lưu
                         </button>
                     </div>
                 </div>

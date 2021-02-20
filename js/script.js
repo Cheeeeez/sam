@@ -15,19 +15,6 @@ class PlayerList {
 
     updateList() {
         let name = $("#name").val().toUpperCase();
-        switch (name) {
-            case "DUNG":
-                name = "DŨNG";
-                break;
-            case "QUY":
-                name = "QUÝ";
-                break;
-            case "VIET":
-                name = "VIỆT";
-                break;
-            case "NHAN":
-                name = "NHẪN"
-        }
         if (this.currentIndex === DEFAULT_INDEX) {
             let player = new Player(name);
             this.list.push(player);
@@ -58,7 +45,7 @@ class PlayerList {
             if (i !== index) {
                 $("#point-table").append(`<tr>
                     <td>${this.list[i].name}</td>
-                    <td><input class="col-xs-111" id="player-${i}" type="number" size="1"></td>
+                    <td><input id="player-${i}" type="number" size="1"></td>
                     </tr>`);
             }
         }
@@ -121,7 +108,7 @@ class PlayerList {
         $('#playerModal').modal('show');
         let name = this.list[index].name;
         $('#name').val(name);
-        $('#save-name').val('Save');
+        $('#save-name').val('Lưu');
     }
 }
 
@@ -133,7 +120,7 @@ $('#playerModal').on('shown.bs.modal', function () {
 
 $('#playerModal').on('hidden.bs.modal', function () {
     $(this).find('input[type=text]').val('').end();
-    $('#save-name').val('Create');
+    $('#save-name').val('Tạo');
     playerList.currentIndex = DEFAULT_INDEX;
 });
 
