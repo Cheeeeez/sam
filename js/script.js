@@ -66,12 +66,23 @@ class PlayerList {
     }
 
     superUpdatePoint(index) {
+        let name = '';
         for (let i = 0; i < this.list.length; i++) {
+            if (i === index) {
+                name = this.list[i].name;
+            }
             if (i !== index) {
                 this.list[i].point -= 20;
                 this.list[index].point += 20;
             }
         }
+        $('#firework').addClass('pyro');
+        $('#congratulation').html("Chúc mừng " + name + " đã bùng lổ");
+        $('#congratulation').parent().show();
+        setTimeout(function () {
+            $('#firework').removeClass('pyro');
+            $('#congratulation').parent().hide();
+        }, 10000);
         this.setStorage();
         this.showList();
     }
